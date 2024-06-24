@@ -11,5 +11,7 @@ router.get('/', usersCtrl.getUsers);
 router.get('/business', usersCtrl.findByBusiness);
 //delete a user by ID
 router.delete('/:id', usersCtrl.deleteUser);
+//update a business by id
+router.patch('/:id', usersCtrl.updatedBusiness);
 
 module.exports = router;

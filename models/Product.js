@@ -1,11 +1,7 @@
 const { Schema, model } = require('../config/db-connection');
 
 const productsSchema = new Schema({
-  business: {
-    type: String,
-    require: true,
-  },
-  businessId: {
+  company: {
     type: String,
     require: true,
   },
@@ -17,7 +13,9 @@ const productsSchema = new Schema({
     type: String,
     require: true,
   },
-  imageUrl: String
+  imageUrl: String,
+  price: Number,
+  exchange: Boolean
 });
 
 module.exports = model('Products', productsSchema);

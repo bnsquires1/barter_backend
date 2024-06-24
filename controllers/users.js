@@ -5,6 +5,7 @@ module.exports = {
   getUsers,
   findByBusiness,
   deleteUser,
+  updatedBusiness
 };
 
 async function createUser(req, res) {
@@ -45,5 +46,21 @@ async function deleteUser(req, res) {
     res.status(200).json(deleteUser);
   } catch (err) {
     res.status(400).send(err)
+  }
+}
+// update a business by ID
+async function updatedBusiness(req, res) {
+  try {
+    const updatedUser = await User.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      {
+        new: true,
+      }
+    );
+
+    res.status(200).json(updatedUser);
+  } catch (err) {
+    res.status(400).send(err);
   }
 };
