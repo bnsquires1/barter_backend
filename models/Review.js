@@ -1,4 +1,4 @@
-const { Schema, model } = require("mongoose")
+const { Schema, model } = require('../config/db-connection');
 
 const reviewSchema = new Schema({
     company: {
@@ -7,16 +7,16 @@ const reviewSchema = new Schema({
     },
     product: {
         type: String,
-        required: true,
     },
-    author: {
-        type: String,
-        required: true
-    },
-    comments: [
+    // email: {
+    //     type: String,
+    //     required: true
+    // },
+    review: [
         {
         content: String,
         author: String,
+        email: String
     },
 ],
 });

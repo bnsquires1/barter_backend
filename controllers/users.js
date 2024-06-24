@@ -3,6 +3,7 @@ const User = require('../models/Company');
 module.exports = {
   createUser,
   getUsers,
+  findByBusiness,
   deleteUser,
 };
 
@@ -26,7 +27,16 @@ async function getUsers(req, res) {
     res.status(400).send(err)
   }
 };
+//find a business by name
+async function findByBusiness(req, res) {
+  try {
+    const users = await User.findByBusiness()
 
+    res.status(200).json(users)
+  } catch (err) {
+    res.status(400).send(err)
+  }
+};
 //delete a user by ID
 async function deleteUser(req, res) {
   try {

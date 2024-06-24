@@ -9,6 +9,9 @@ const PORT = process.env.PORT || 8000;
 // Requiring example router
 const userRouter = require('./routes/users.js');
 
+const reviewsRouter = require('./routes/reviews.js');
+const productsRouter = require('./routes/products.js')
+
 // Configuring the server to accept and parse JSON data.
 app.use(express.json());
 
@@ -20,6 +23,8 @@ app.use((req, res, next) => {
 
 // Connecting the router to the server
 app.use('/users', userRouter);
+app.use('/reviews', reviewsRouter);
+app.use('/products', productsRouter);
 
 app.get('/', (req, res) => {
   res.send('<h1>Welcome to the Barter.</h1>')

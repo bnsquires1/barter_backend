@@ -1,6 +1,6 @@
 const { Schema, model } = require('../config/db-connection');
 
-const companySchema = Schema({
+const companySchema = new Schema({
   business: {
     type: String,
     required: true,
@@ -26,6 +26,10 @@ const companySchema = Schema({
     unique: true,
   },
 });
+
+companySchema.statics.findByBusiness = function () {
+  return this.find({business});
+};
 
 module.exports = model('Company', companySchema
 );

@@ -7,6 +7,8 @@ const router = Router();
 router.post('/', usersCtrl.createUser);
 //Read all users
 router.get('/', usersCtrl.getUsers);
+//search by business name
+router.get('/business', usersCtrl.findByBusiness);
 //delete a user by ID
 router.delete('/:id', usersCtrl.deleteUser);
 
