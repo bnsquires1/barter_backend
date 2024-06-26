@@ -6,14 +6,17 @@ const express = require('express');
 const app = express();
 // Port in which the server will run on
 const PORT = process.env.PORT || 8000;
-// Requiring example router
-const userRouter = require('./routes/users.js');
 
+const cors = require('cors');
+
+const userRouter = require('./routes/users.js');
 const reviewsRouter = require('./routes/reviews.js');
 const productsRouter = require('./routes/products.js')
 
 // Configuring the server to accept and parse JSON data.
 app.use(express.json());
+
+app.use(cors());
 
 //Custom Middlware
 app.use((req, res, next) => {
@@ -35,7 +38,6 @@ app.use((err, req, res, next) => {
   res.status(500).send('Something went wrong.');
 });
 
-// Calling the listen function telling the server to listen on port 3000
 app.listen(PORT, () => {
   console.log(`Listening on port: ${PORT}`);
 });
