@@ -4,11 +4,11 @@ const productsCtrl = require('../controllers/products.js');
 const router = Router();
 
 //create a new product/service
-router.post('/', productsCtrl.createProduct);
+router.post('/add', productsCtrl.createProduct);
 //view all products/services available
-router.get('/', productsCtrl.getProducts);
+router.get('/allproducts', productsCtrl.getProducts);
 //display all products/services provided by a business
-router.get('/display', productsCtrl.displayProducts);
+router.get('/business', productsCtrl.displayProducts);
 //update a product listing by id
 router.patch('/:id', productsCtrl.updatedProduct);
 //delete a product listing by id
